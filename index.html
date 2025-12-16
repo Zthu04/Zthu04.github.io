@@ -6,49 +6,41 @@
     <title>Zin Win Thu | PhD · Aerospace Engineering</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #333; --link: #003147; --bg: #ffffff; --sidebar-text: #555; --nav-bg: #fff; }
-        body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--primary); line-height: 1.7; margin: 0; background: #fff; scroll-behavior: smooth; }
+        :root { --primary: #333; --link: #003147; --nav-text: #777; --bg: #ffffff; }
+        body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--primary); line-height: 1.6; margin: 0; background: #fff; }
         
-        /* Navigation */
-        nav { position: sticky; top: 0; background: var(--nav-bg); border-bottom: 1px solid #eee; z-index: 1000; padding: 15px 0; }
-        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; gap: 30px; padding: 0 20px; }
-        .nav-container a { text-decoration: none; color: #777; font-weight: 500; font-size: 0.95rem; cursor: pointer; border-bottom: 2px solid transparent; transition: 0.3s; }
-        .nav-container a:hover, .nav-container a.active { color: var(--link); border-bottom: 2px solid var(--link); }
+        nav { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #eee; z-index: 1000; padding: 20px 0; }
+        .nav-container { max-width: 1100px; margin: 0 auto; display: flex; gap: 40px; padding: 0 20px; }
+        .nav-container a { text-decoration: none; color: var(--nav-text); font-weight: 500; font-size: 1.1rem; cursor: pointer; border-bottom: 2px solid transparent; }
+        .nav-container a.active { color: #000; border-bottom: 2px solid var(--link); }
 
-        .wrapper { display: flex; max-width: 1000px; margin: 40px auto; gap: 50px; padding: 0 20px; }
+        .wrapper { display: flex; max-width: 1100px; margin: 40px auto; gap: 60px; padding: 0 20px; }
         
-        /* Sidebar */
-        aside { flex: 0 0 220px; text-align: left; }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 1px solid #eee; background: #f9f9f9; }
-        .sidebar-name { font-size: 1.4rem; font-weight: bold; margin-bottom: 5px; color: #000; }
-        .sidebar-desc { font-size: 0.85rem; color: var(--sidebar-text); margin-bottom: 20px; line-height: 1.4; }
+        aside { flex: 0 0 240px; text-align: left; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 1px solid #eee; }
+        .sidebar-name { font-size: 1.5rem; font-weight: bold; margin-bottom: 5px; color: #000; }
+        .sidebar-desc { font-size: 0.85rem; color: #555; margin-bottom: 25px; line-height: 1.4; }
         .social-links { list-style: none; padding: 0; margin: 0; }
-        .social-links li { margin-bottom: 10px; font-size: 0.85rem; }
-        .social-links a { color: var(--sidebar-text); text-decoration: none; display: flex; align-items: center; gap: 10px; }
-        .social-links a:hover { color: var(--link); text-decoration: underline; }
+        .social-links li { margin-bottom: 10px; font-size: 0.9rem; }
+        .social-links a { color: #555; text-decoration: none; display: flex; align-items: center; gap: 10px; }
 
-        /* Main Content */
         main { flex: 1; }
-        .tab-content { display: none; animation: fadeIn 0.4s; }
+        .tab-content { display: none; }
         .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        h1 { font-size: 2rem; margin-top: 0; font-weight: 500; }
-        h2 { font-size: 1.3rem; color: var(--link); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-top: 35px; }
+        h1 { font-size: 2.2rem; margin-top: 0; margin-bottom: 1.2rem; }
+        h2 { font-size: 1.4rem; color: #444; margin-top: 2rem; border-bottom: none; }
         
-        /* Publications Styling */
-        .pub-item { margin-bottom: 22px; padding-left: 10px; border-left: 3px solid #eee; }
-        .pub-title { font-weight: bold; display: block; color: var(--link); text-decoration: none; margin-bottom: 4px; }
-        .pub-authors { font-size: 0.9rem; color: #444; }
-        .pub-venue { font-size: 0.85rem; font-style: italic; color: #666; }
-        .badge { font-size: 0.7rem; background: #eef4f7; color: #004d71; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-weight: bold; border: 1px solid #d1e1e9; }
+        .research-figure { margin: 30px 0; padding: 15px; border: 1px solid #f0f0f0; border-radius: 4px; background: #fafafa; text-align: center; }
+        .research-figure img { max-width: 100%; height: auto; border-radius: 2px; }
+        .figure-caption { font-size: 0.85rem; color: #666; margin-top: 10px; }
 
-        @media (max-width: 768px) {
+        .pub-entry { display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start; }
+        .pub-img { flex: 0 0 180px; border: 1px solid #eee; }
+        .pub-img img { width: 100%; height: auto; display: block; }
+        
+        @media (max-width: 850px) {
             .wrapper { flex-direction: column; }
-            aside { flex: none; width: 100%; text-align: center; border-bottom: 1px solid #eee; padding-bottom: 30px; }
-            .profile-img { margin: 0 auto 20px; }
-            .social-links a { justify-content: center; }
-            .nav-container { justify-content: center; gap: 15px; font-size: 0.85rem; }
+            .pub-entry { flex-direction: column; }
         }
     </style>
 </head>
@@ -56,10 +48,10 @@
 
 <nav>
     <div class="nav-container">
-        <a id="nav-vision" class="active" onclick="showTab('vision')">Vision</a>
+        <a id="nav-about" class="active" onclick="showTab('about')">About Me</a>
         <a id="nav-research" onclick="showTab('research')">My Research</a>
         <a id="nav-publications" onclick="showTab('publications')">Publications</a>
-        <a href="CV.pdf" target="_blank">CV <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>
+        <a href="CV.pdf" target="_blank">CV</a>
     </div>
 </nav>
 
@@ -68,94 +60,101 @@
         <img src="profile.jpg" alt="Zin Win Thu" class="profile-img">
         <div class="sidebar-name">Zin Win Thu</div>
         <div class="sidebar-desc">
-            PhD Candidate in Aerospace Engineering<br>
-            Specializing in Generative AI & Aircraft Design
+            Ph.D. Researcher at Konkuk University [cite: 11] <br>
+            Aerospace Design & Generative AI [cite: 6]
         </div>
         <ul class="social-links">
             <li><a href="mailto:z.w.thu.29@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
             <li><a href="https://orcid.org/0000-0003-2948-4873" target="_blank"><i class="fab fa-orcid"></i> ORCID</a></li>
             <li><a href="https://github.com/Zthu04" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
-            <li><a href="#" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
         </ul>
     </aside>
 
-    <main id="content">
-        <section id="vision" class="tab-content active">
-            <h1>Research Vision</h1>
-            <p>My research focuses on improving the practicality of aerodynamic and structural aircraft design through <strong>Scientific Machine Learning</strong>. I aim to provide effective solutions to large-scale optimization problems characterized by massive design points and uncertain variables.</p>
-            
-            <p>I integrate <strong>Deep Generative Models (VAE)</strong> and <strong>Probabilistic Surrogates (MDN, BNN)</strong> into multidisciplinary aircraft design environments to accelerate conceptual sizing and enhance reliability[cite: 144, 146].</p>
-            
-            <h2 style="border:none;">Core Objectives:</h2>
-            <ul>
-                <li>Dimensionality reduction in complex shape optimization[cite: 144].</li>
-                <li>Design under uncertainty using Reliability-Based (RBDO) and Possibility-Based (PBDO) methods[cite: 147].</li>
-                <li>Performance sizing for Hybrid-Electric and Advanced Air Mobility (AAM) aircraft[cite: 149].</li>
-            </ul>
+    <main>
+        <section id="about" class="tab-content active">
+            <h1>About Me</h1>
+            <p>
+                I am a Ph.D. researcher in Aerospace and Mobility Engineering at <strong>Konkuk University</strong>, Seoul[cite: 11, 13]. 
+                My research specializes in bridging the gap between advanced <strong>Generative AI</strong> and practical <strong>Aerospace Multidisciplinary Design Optimization (MDO)</strong>[cite: 143, 148]. 
+            </p>
+            <p>
+                My primary focus is on solving the "curse of dimensionality" in aircraft design through <strong>Scientific Machine Learning</strong>[cite: 146]. 
+                By utilizing Deep Generative Models like Variational Autoencoders (VAE) and Probabilistic Surrogates such as Mixture Density Networks (MDN), 
+                I develop frameworks that allow for large-scale optimization under significant uncertainty[cite: 143, 151].
+            </p>
+            <p>
+                As the lead developer of the <strong>CADE</strong> environment, I have created a unified platform that integrates geometry generation, 
+                aerodynamics, and performance sizing for next-generation <strong>Hybrid-Electric</strong> and Regional Air Mobility (RAM) aircraft[cite: 119, 144].
+            </p>
         </section>
 
         <section id="research" class="tab-content">
             <h1>My Research</h1>
             
-            <h2>CADE: Comprehensive Aircraft Design Environment</h2>
-            <p>As the lead developer, I built the <strong>CADE framework</strong> to support the entire aerospace design workflow—from early-stage geometry generation to high-fidelity multidisciplinary optimization.</p>
+            <h2>1. Dimensionality Reduction & Generative Design</h2>
+            <p>
+                Traditional parameterization methods often require hundreds of variables, making optimization computationally expensive[cite: 143]. 
+                My research reformulates the design space using <strong>Generative AI (VAE)</strong>, reducing dimensionality to a manageable set 
+                while maintaining high design effectiveness[cite: 146, 154].
+            </p>
 
-            <h2>Hybrid-Electric Sizing & Performance</h2>
-            <p>My research includes the development of sizing programs for <strong>Fuel Cell-Battery hybrid AAM aircraft</strong> and hydrogen-powered eVTOL UAVs[cite: 101, 103, 130]. I focus on balancing power/energy needs and technological constraints[cite: 30].</p>
+            <div class="research-figure">
+                
+                <div class="figure-caption">Conceptual framework of VAE-based design space reduction for subsonic airfoils.</div>
+            </div>
 
-            <h2>Operational Management & Digital Twins</h2>
-            <p>I have developed optimization models for multi-vehicle point-to-point network operations, considering passenger priority and real-time battery levels for UAM Digital Twins[cite: 50, 126, 166].</p>
+            <h2>2. Comprehensive Aircraft Design Environment (CADE)</h2>
+            <p>
+                I am the lead developer for <strong>CADE</strong>, a multidisciplinary framework designed to handle the entire aircraft design lifecycle. 
+                It seamlessly integrates aerodynamic evaluation with electric propulsion system sizing to support the development of <strong>Advanced Air Mobility (AAM)</strong> vehicles[cite: 119, 162].
+            </p>
+
+            <div class="research-figure">
+                
+                <div class="figure-caption">Integrated MDO architecture of the CADE framework for hybrid-electric aircraft sizing.</div>
+            </div>
+
+            <h2>3. Design Under Uncertainty (PBDO / RBDO)</h2>
+            <p>
+                I apply <strong>Possibility-Based (PBDO)</strong> and <strong>Reliability-Based Design Optimization (RBDO)</strong> to ensure that new aircraft configurations 
+                remain robust against technological and operational uncertainties, particularly in hybrid propulsion systems[cite: 147, 155].
+            </p>
+
+            <div class="research-figure">
+                
+                <div class="figure-caption">Uncertainty quantification in hybrid-electric sizing using probabilistic surrogate modeling.</div>
+            </div>
         </section>
 
         <section id="publications" class="tab-content">
-            <h1>Selected Publications</h1>
-            
-            <div class="pub-item">
-                <span class="pub-title">Integrated Propulsion System Analysis Framework for Designing Advanced Air Mobility Aircraft</span>
-                <span class="pub-authors">M. I. Alam, Zin Win Thu, N. Nguyen, M. Tyan, J.-W. Lee</span><br>
-                <span class="pub-venue">IEEE Transactions on Transportation Electrification, 2024</span>
-                <span class="badge">Q1</span> <span class="badge">IF 8.3</span>
+            <h1>Publications</h1>
+            <div class="pub-entry">
+                <div class="pub-img"></div>
+                <div class="pub-info">
+                    <strong>Integrated Propulsion System Analysis Framework for AAM Aircraft</strong> [cite: 27]
+                    <br><em>IEEE Transactions on Transportation Electrification, 2024</em> [cite: 27]
+                    <br><span style="color:green; font-weight:bold;">Q1 Journal (IF 8.3)</span> [cite: 28]
+                </div>
             </div>
-
-            <div class="pub-item">
-                <span class="pub-title">Possibility-Based Sizing Method for Hybrid Electric Aircraft</span>
-                <span class="pub-authors">Zin Win Thu, M. Tyan, Y.-H. Choi, M. I. Alam, J.-W. Lee</span><br>
-                <span class="pub-venue">IEEE Access, 2025</span>
-                <span class="badge">Q1</span> <span class="badge">IF 3.6</span>
+            <div class="pub-entry">
+                <div class="pub-img"></div>
+                <div class="pub-info">
+                    <strong>Possibility-Based Sizing Method for Hybrid Electric Aircraft</strong> [cite: 20]
+                    <br><em>IEEE Access, 2025</em> [cite: 20]
+                    <br><span style="color:green; font-weight:bold;">Q1 Journal</span> [cite: 20]
+                </div>
             </div>
-
-            <div class="pub-item">
-                <span class="pub-title">Deep Generative and Probabilistic Surrogate Modeling for Subsonic Airfoil Design</span>
-                <span class="pub-authors">Zin Win Thu, Aye Aye Maw, J.-W. Lee</span><br>
-                <span class="pub-venue">Journal of Aircraft, 2025</span>
-                <span class="badge">Under Review</span>
-            </div>
-
-            <h2>Software & Patents</h2>
-            <ul>
-                <li><strong>Patent:</strong> UAM Operation Management with Dynamic Scheduling (10-2023-0036070)[cite: 92, 93].</li>
-                <li><strong>Software:</strong> ADSP (Aircraft Design Synthesis Program) for Fixed-wing eVTOL[cite: 100].</li>
-            </ul>
         </section>
     </main>
 </div>
 
 <script>
     function showTab(tabId) {
-        // 1. Hide all tab content
-        const contentSections = document.querySelectorAll('.tab-content');
-        contentSections.forEach(section => section.classList.remove('active'));
-        
-        // 2. Remove 'active' class from all nav links
-        const navLinks = document.querySelectorAll('.nav-container a');
-        navLinks.forEach(link => link.classList.remove('active'));
-        
-        // 3. Show the target tab and highlight the nav link
+        document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-container a').forEach(a => a.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
         document.getElementById('nav-' + tabId).classList.add('active');
-        
-        // 4. Scroll to top of content (useful for mobile)
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo(0, 0);
     }
 </script>
 
