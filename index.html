@@ -28,19 +28,32 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; }
         h1 { font-size: 2.2rem; margin-top: 0; margin-bottom: 1.2rem; }
-        h2 { font-size: 1.4rem; color: #444; margin-top: 2rem; border-bottom: none; }
+        h2 { font-size: 1.4rem; color: #444; margin-top: 2.5rem; border-bottom: 1px solid #eee; padding-bottom: 8px; }
         
+        /* Research Figure Styling */
         .research-figure { margin: 30px 0; padding: 15px; border: 1px solid #f0f0f0; border-radius: 4px; background: #fafafa; text-align: center; }
         .research-figure img { max-width: 100%; height: auto; border-radius: 2px; }
         .figure-caption { font-size: 0.85rem; color: #666; margin-top: 10px; }
 
-        .pub-entry { display: flex; gap: 20px; margin-bottom: 30px; align-items: flex-start; }
-        .pub-img { flex: 0 0 180px; border: 1px solid #eee; }
-        .pub-img img { width: 100%; height: auto; display: block; }
-        
+        /* Publication Figure Layout */
+        .pub-entry { display: flex; gap: 20px; margin-bottom: 35px; align-items: flex-start; }
+        .pub-img { flex: 0 0 220px; border: 1px solid #eee; border-radius: 4px; overflow: hidden; }
+        .pub-img img { width: 100%; height: auto; display: block; transition: transform 0.3s; }
+        .pub-img img:hover { transform: scale(1.05); }
+        .pub-info { flex: 1; }
+        .pub-title { font-weight: bold; font-size: 1.1rem; color: var(--link); text-decoration: none; display: block; margin-bottom: 5px; }
+        .pub-authors { font-size: 0.9rem; color: #444; }
+        .pub-venue { font-size: 0.85rem; color: #777; font-style: italic; }
+        .badge { background: #eef4f7; color: #004d71; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-left: 5px; }
+
+        /* Conference List Styling */
+        .conf-list { padding-left: 20px; margin-top: 15px; }
+        .conf-item { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.5; color: #444; }
+
         @media (max-width: 850px) {
             .wrapper { flex-direction: column; }
             .pub-entry { flex-direction: column; }
+            .pub-img { flex: none; width: 100%; }
         }
     </style>
 </head>
@@ -57,11 +70,13 @@
 
 <div class="wrapper">
     <aside>
-        <img src="profile3.jpg" alt="Zin Win Thu" class="profile-img">
+        <img src="profile.jpg" alt="Zin Win Thu" class="profile-img">
         <div class="sidebar-name">Zin Win Thu</div>
         <div class="sidebar-desc">
-            Ph.D. Researcher at Konkuk University [cite: 11] <br>
-            Aerospace Design & Generative AI [cite: 6]
+            Ph.D. Researcher at Konkuk University <br>
+            Multidisciplinary Design Optimization <br>
+            Generative AI for Aircraft Design <br>
+            Uncertainty-Aware Design Optimization <br> 
         </div>
         <ul class="social-links">
             <li><a href="mailto:z.w.thu.29@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
@@ -75,76 +90,99 @@
         <section id="about" class="tab-content active">
             <h1>About Me</h1>
             <p>
-                I am a Ph.D. researcher in Aerospace and Mobility Engineering at <strong>Konkuk University</strong>, Seoul[cite: 11, 13]. 
-                My research specializes in bridging the gap between advanced <strong>Generative AI</strong> and practical <strong>Aerospace Multidisciplinary Design Optimization (MDO)</strong>[cite: 143, 148]. 
+                I am a Ph.D. candidate in Aerospace and Mobility Engineering at <strong>Konkuk University</strong>, Seoul. My work is dedicated to integrating <strong>Scientific Machine Learning</strong> into the industrial design of aerospace systems.
             </p>
             <p>
-                My primary focus is on solving the "curse of dimensionality" in aircraft design through <strong>Scientific Machine Learning</strong>[cite: 146]. 
-                By utilizing Deep Generative Models like Variational Autoencoders (VAE) and Probabilistic Surrogates such as Mixture Density Networks (MDN), 
-                I develop frameworks that allow for large-scale optimization under significant uncertainty[cite: 143, 151].
+                My research specifically addresses large-scale aerodynamic shape optimization challenges, where massive design points and high-dimensional spaces often hinder traditional methods. I leverage <strong>Deep Generative Models (VAE)</strong> and <strong>Probabilistic Surrogates (MDN, BNN)</strong> to reduce design dimensionality and quantify performance uncertainties.
             </p>
             <p>
-                As the lead developer of the <strong>CADE</strong> environment, I have created a unified platform that integrates geometry generation, 
-                aerodynamics, and performance sizing for next-generation <strong>Hybrid-Electric</strong> and Regional Air Mobility (RAM) aircraft[cite: 119, 144].
+                As the lead developer of the <strong>Comprehensive Aircraft Design Environment (CADE)</strong>, I focus on the conceptual sizing and performance analysis of next-generation <strong>Advanced Air Mobility (AAM)</strong> and hybrid-electric aircraft.
             </p>
         </section>
 
         <section id="research" class="tab-content">
             <h1>My Research</h1>
             
-            <h2>1. Dimensionality Reduction & Generative Design</h2>
-            <p>
-                Traditional parameterization methods often require hundreds of variables, making optimization computationally expensive[cite: 143]. 
-                My research reformulates the design space using <strong>Generative AI (VAE)</strong>, reducing dimensionality to a manageable set 
-                while maintaining high design effectiveness[cite: 146, 154].
-            </p>
-
+            <h2>1. Dimensionality Reduction in Design Spaces</h2>
+            <p>My work reformulates feasible design domains using Generative AI. By training Variational Autoencoders on thousands of airfoil and wing shapes, we can compress hundreds of geometric variables into a latent space of just 10-20 variables without losing performance accuracy.</p>
             <div class="research-figure">
                 
-                <div class="figure-caption">Conceptual framework of VAE-based design space reduction for subsonic airfoils.</div>
+                <div class="figure-caption">Visualizing the compressed design space for subsonic airfoil generation.</div>
             </div>
 
-            <h2>2. Comprehensive Aircraft Design Environment (CADE)</h2>
-            <p>
-                I am the lead developer for <strong>CADE</strong>, a multidisciplinary framework designed to handle the entire aircraft design lifecycle. 
-                It seamlessly integrates aerodynamic evaluation with electric propulsion system sizing to support the development of <strong>Advanced Air Mobility (AAM)</strong> vehicles[cite: 119, 162].
-            </p>
-
+            <h2>2. CADE: Multidisciplinary Design Optimization</h2>
+            <p>I developed the CADE framework to bridge the gap between propulsion, aerodynamics, and structural weight. This is currently used for the concept development of Regional Air Mobility (RAM) aircraft.</p>
             <div class="research-figure">
                 
-                <div class="figure-caption">Integrated MDO architecture of the CADE framework for hybrid-electric aircraft sizing.</div>
-            </div>
-
-            <h2>3. Design Under Uncertainty (PBDO / RBDO)</h2>
-            <p>
-                I apply <strong>Possibility-Based (PBDO)</strong> and <strong>Reliability-Based Design Optimization (RBDO)</strong> to ensure that new aircraft configurations 
-                remain robust against technological and operational uncertainties, particularly in hybrid propulsion systems[cite: 147, 155].
-            </p>
-
-            <div class="research-figure">
-                
-                <div class="figure-caption">Uncertainty quantification in hybrid-electric sizing using probabilistic surrogate modeling.</div>
+                <div class="figure-caption">Integrated propulsion-aerodynamics workflow within the CADE environment.</div>
             </div>
         </section>
 
         <section id="publications" class="tab-content">
             <h1>Publications</h1>
+
+            <h2>Journal Articles</h2>
+            
             <div class="pub-entry">
-                <div class="pub-img"></div>
+                <div class="pub-img">
+                    
+                </div>
                 <div class="pub-info">
-                    <strong>Integrated Propulsion System Analysis Framework for AAM Aircraft</strong> [cite: 27]
-                    <br><em>IEEE Transactions on Transportation Electrification, 2024</em> [cite: 27]
-                    <br><span style="color:green; font-weight:bold;">Q1 Journal (IF 8.3)</span> [cite: 28]
+                    <span class="pub-title">Possibility-Based Sizing Method for Hybrid Electric Aircraft</span>
+                    <span class="pub-authors">Zin Win Thu, Maxim Tyan, Yong-Hyeon Choi, Mohammad Irfan Alam, and Jae-Woo Lee</span>
+                    <span class="pub-venue">IEEE Access, 2025 <span class="badge">Q1 · IF 3.6</span></span>
                 </div>
             </div>
+
             <div class="pub-entry">
-                <div class="pub-img"></div>
+                <div class="pub-img">
+                    
+                </div>
                 <div class="pub-info">
-                    <strong>Possibility-Based Sizing Method for Hybrid Electric Aircraft</strong> [cite: 20]
-                    <br><em>IEEE Access, 2025</em> [cite: 20]
-                    <br><span style="color:green; font-weight:bold;">Q1 Journal</span> [cite: 20]
+                    <span class="pub-title">Integrated Propulsion System Analysis Framework for Designing Advanced Air Mobility Aircraft</span>
+                    <span class="pub-authors">Mohammad Irfan Alam, Zin Win Thu, Nghia Nguyen, Maxim Tyan, and Jae-Woo Lee</span>
+                    <span class="pub-venue">IEEE Transactions on Transportation Electrification, 2024 <span class="badge">Q1 · IF 8.3</span></span>
                 </div>
             </div>
+
+            <div class="pub-entry">
+                <div class="pub-img">
+                    
+                </div>
+                <div class="pub-info">
+                    <span class="pub-title">Deep Generative and Probabilistic Surrogate Modeling for Subsonic Airfoil Design</span>
+                    <span class="pub-authors">Zin Win Thu, Aye Aye Maw, & Jae-Woo Lee</span>
+                    <span class="pub-venue">Journal of Aircraft, 2025 <span class="badge">Under Review</span></span>
+                </div>
+            </div>
+
+            <div class="pub-entry">
+                <div class="pub-img">
+                    
+                </div>
+                <div class="pub-info">
+                    <span class="pub-title">Multivehicle Point-to-Point Network Problem Formulation for UAM Operation Management Used with Dynamic Scheduling</span>
+                    <span class="pub-authors">Zin Win Thu, et al.</span>
+                    <span class="pub-venue">Applied Sciences, 2022 <span class="badge">Q2 · IF 2.5</span></span>
+                </div>
+            </div>
+
+            <h2>Conference Proceedings</h2>
+            
+            <h3>International</h3>
+            <ul class="conf-list">
+                <li class="conf-item"><strong>Zin Win Thu</strong>, et al., "Enhanced Performance Prediction of Hydrogen Fuel Cell Powered eVTOL UAV," AIAA AVIATION 2022 Forum.</li>
+                <li class="conf-item">Y. H. Choi, <strong>Zin Win Thu</strong>, et al., "Deriving the Flight Envelope and Conversion Corridor of an eVTOL Tiltrotor Aircraft," AIAA AVIATION 2025.</li>
+                <li class="conf-item">D. O. Kwag, <strong>Zin Win Thu</strong>, et al., "A multi-objective optimization approach for reliable electric propulsion system architecture," WCSMO16, 2025.</li>
+            </ul>
+
+            <h3>Domestic (Selected)</h3>
+            <ul class="conf-list">
+                <li class="conf-item"><strong>Zin Win Thu</strong>, et al., "Comprehensive AAM flight performance program: Development and evaluation," KSAS Conference, 2024.</li>
+                <li class="conf-item"><strong>Zin Win Thu</strong>, et al., "Optimization of multi-UAM point-to-point network operation considering passenger priority," KSAS Conference, 2023.</li>
+                <li class="conf-item">Y.-H. Choi, <strong>Zin Win Thu</strong>, et al., "Development of sizing program for fuel cell-battery hybrid electric AAM aircraft," KSAS Conference, 2024.</li>
+                <li class="conf-item">D.-Y. Kwon, <strong>Zin Win Thu</strong>, et al., "Hydrogen fuel cell-battery hybrid propulsion system power distribution analysis," KSAS Conference, 2021.</li>
+            </ul>
         </section>
     </main>
 </div>
@@ -154,7 +192,7 @@
         document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.nav-container a').forEach(a => a.classList.remove('active'));
         document.getElementById(tabId).classList.add('active');
-        document.getElementById('nav-' + tabId).classList.add('active');
+        document.getElementById('nav-' + (tabId === 'about' ? 'about' : tabId)).classList.add('active');
         window.scrollTo(0, 0);
     }
 </script>
