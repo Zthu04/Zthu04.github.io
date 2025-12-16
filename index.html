@@ -1,81 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Zin Win Thu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      max-width: 900px;
-      margin: 60px auto;
-      line-height: 1.7;
-      color: #222;
-    }
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 0.2em;
-    }
-    h2 {
-      margin-top: 2em;
-      color: #003147;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.3em;
-    }
-    .subtitle {
-      color: #555;
-      font-size: 1.1em;
-    }
-    a {
-      color: #003147;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zin Win Thu | PhD · Aerospace Engineering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #2c3e50;
+            --accent-blue: #004d71;
+            --text-main: #333;
+            --text-light: #666;
+            --sidebar-bg: #fdfdfd;
+            --border-color: #e1e4e8;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            background-color: #f6f8fa;
+        }
+
+        .container {
+            display: flex;
+            max-width: 1100px;
+            margin: 40px auto;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        /* Sidebar - The "Academic" Identity */
+        aside {
+            flex: 0 0 280px;
+            background: var(--sidebar-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            height: fit-content;
+            position: sticky;
+            top: 40px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .profile-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #eee;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .name { font-size: 1.6rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 5px; }
+        .affil { font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+
+        .sidebar-links a {
+            display: flex;
+            align-items: center;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+        .sidebar-links i { width: 25px; color: #444; }
+        .sidebar-links a:hover { opacity: 0.7; text-decoration: underline; }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .intro { font-size: 1.1rem; color: #444; margin-bottom: 30px; }
+        
+        .section-block { margin-bottom: 45px; }
+
+        /* Experience & Education styling */
+        .item { margin-bottom: 20px; }
+        .item-header { display: flex; justify-content: space-between; font-weight: 600; color: #111; }
+        .item-sub { color: var(--text-light); font-size: 0.9rem; display: block; }
+        .item-desc { font-size: 0.95rem; margin-top: 5px; color: #444; }
+
+        /* Publication Badge */
+        .badge {
+            display: inline-block;
+            background: #e8f4fd;
+            color: #0366d6;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 850px) {
+            .container { flex-direction: column; margin-top: 10px; }
+            aside { position: relative; top: 0; flex: none; width: auto; }
+        }
+    </style>
 </head>
 <body>
 
-<h1>Zin Win Thu</h1>
-<p class="subtitle">
-PhD in Aerospace Engineering · Generative AI · Aircraft Design
-</p>
+<div class="container">
+    <aside>
+        <img src="profile.jpg" alt="Zin Win Thu" class="profile-img">
+        <div class="name">Zin Win Thu</div>
+        <div class="affil">
+            PhD Graduate<br>
+            Konkuk University, Seoul
+        </div>
+        
+        <div class="sidebar-links">
+            <a href="mailto:z.w.thu.29@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://orcid.org/0000-0003-2948-4873" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
+            <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+            <a href="https://github.com/Zthu04" target="_blank"><i class="fab fa-github"></i> GitHub (Zthu04)</a>
+            <a href="CV.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Download Curriculum Vitae</a>
+        </div>
+    </aside>
 
-<h2>About</h2>
-<p>
-I am a PhD researcher in Aerospace Engineering specializing in 
-<strong>generative AI for aircraft design</strong>, 
-<strong>uncertainty-based optimization</strong>, and 
-<strong>hybrid-electric aircraft conceptual design</strong>.
-My research integrates deep generative models with multidisciplinary aircraft design environments.
-</p>
+    <main>
+        <section class="section-block">
+            <h2>About Me</h2>
+            <p class="intro">
+                I am a Ph.D. researcher in <strong>Aerospace and Mobility Engineering</strong> at Konkuk University. My expertise lies at the intersection of <strong>Generative AI</strong> and <strong>Multidisciplinary Design Optimization (MDO)</strong>. 
+            </p>
+            <p>
+                My work focuses on developing AI-driven environments (like <strong>CADE</strong>) to automate and optimize the conceptual design of complex systems, specifically <strong>hybrid-electric aircraft</strong> and Advanced Air Mobility (AAM) vehicles.
+            </p>
+        </section>
 
-<h2>Research Interests</h2>
-<ul>
-  <li>Variational Autoencoders (VAE) and Mixture Density Networks (MDN)</li>
-  <li>Reliability-based design optimization (RDO / RBDO)</li>
-  <li>Hybrid-electric and AAM aircraft design</li>
-</ul>
+        <section class="section-block">
+            <h2>Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <span>Ph.D. in Aerospace and Mobility Engineering</span>
+                    <span>2020 — 2025</span>
+                </div>
+                <span class="item-sub">Konkuk University, Seoul, South Korea</span>
+                <p class="item-desc"><em>Thesis: GenAI Optimization Approach for Large Scale Aircraft Design under Uncertainty</em></p>
+            </div>
+            <div class="item">
+                <div class="item-header">
+                    <span>B.E. in Aerospace Engineering</span>
+                    <span>2012 — 2019</span>
+                </div>
+                <span class="item-sub">Myanmar Aerospace Engineering University</span>
+            </div>
+        </section>
 
-<h2>Projects</h2>
-<ul>
-  <li>
-    <strong>CADE</strong> – Comprehensive Aircraft Design Environment<br>
-    AI-enhanced aircraft conceptual design framework integrating geometry, aerodynamics, performance, and optimization.
-  </li>
-</ul>
+        <section class="section-block">
+            <h2>Software & Systems</h2>
+            <div class="item">
+                <div class="item-header">CADE (Comprehensive Aircraft Design Environment)</div>
+                <p class="item-desc">Lead developer of an integrated environment that automates geometry generation, aerodynamic analysis, and performance sizing using Generative VAE and BNN models.</p>
+            </div>
+        </section>
 
-<h2>Publications</h2>
-<p>
-Journal and conference publications will be listed here.
-</p>
+        <section class="section-block">
+            <h2>Selected Publications</h2>
+            <div class="item">
+                <div class="item-header">Integrated Propulsion System Analysis Framework for AAM</div>
+                <span class="item-sub">IEEE Transactions on Transportation Electrification, 2024</span>
+                <span class="badge">Q1 · IF 8.3</span>
+            </div>
+            <div class="item">
+                <div class="item-header">Possibility-Based Sizing Method for Hybrid Electric Aircraft</div>
+                <span class="item-sub">IEEE Access, 2025</span>
+                <span class="badge">Q1 · Open Access</span>
+            </div>
+            <div class="item">
+                <div class="item-header">Deep Generative Modeling for Subsonic Airfoil Design</div>
+                <span class="item-sub">Journal of Aircraft (Under Review, 2025)</span>
+            </div>
+        </section>
 
-<h2>Contact</h2>
-<p>
-GitHub: <a href="https://github.com/Zthu04">Zthu04</a><br>
-Email: your@email.com
-</p>
+        <section class="section-block">
+            <h2>Technical Skills</h2>
+            <p>
+                <strong>AI/ML:</strong> VAE, MDN, BNN, Generative Optimization<br>
+                <strong>Engineering:</strong> MDO, Uncertainty Quantification (RDO/PBDO), Electric Propulsion<br>
+                <strong>Tools:</strong> Python, MATLAB, LaTeX, MS Office
+            </p>
+        </section>
+    </main>
+</div>
 
 </body>
 </html>
