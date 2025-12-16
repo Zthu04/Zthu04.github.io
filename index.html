@@ -6,203 +6,144 @@
     <title>Zin Win Thu | PhD · Aerospace Engineering</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-dark: #2c3e50;
-            --accent-blue: #004d71;
-            --text-main: #333;
-            --text-light: #666;
-            --sidebar-bg: #fdfdfd;
-            --border-color: #e1e4e8;
-        }
+        :root { --primary: #333; --link: #003147; --bg: #ffffff; --sidebar-text: #555; --nav-bg: #fff; }
+        body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--primary); line-height: 1.7; margin: 0; background: #fff; scroll-behavior: smooth; }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            color: var(--text-main);
-            line-height: 1.6;
-            margin: 0;
-            background-color: #f6f8fa;
-        }
+        /* Navigation */
+        nav { position: sticky; top: 0; background: var(--nav-bg); border-bottom: 1px solid #eee; z-index: 1000; padding: 15px 0; }
+        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; gap: 30px; padding: 0 20px; }
+        .nav-container a { text-decoration: none; color: #777; font-weight: 500; font-size: 0.95rem; }
+        .nav-container a:hover, .nav-container a.active { color: var(--link); border-bottom: 2px solid var(--link); }
 
-        .container {
-            display: flex;
-            max-width: 1100px;
-            margin: 40px auto;
-            gap: 40px;
-            padding: 0 20px;
-        }
-
-        /* Sidebar - The "Academic" Identity */
-        aside {
-            flex: 0 0 280px;
-            background: var(--sidebar-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 25px;
-            height: fit-content;
-            position: sticky;
-            top: 40px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-        }
-
-        .profile-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #eee;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            object-fit: cover;
-        }
-
-        .name { font-size: 1.6rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 5px; }
-        .affil { font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
-
-        .sidebar-links a {
-            display: flex;
-            align-items: center;
-            color: var(--accent-blue);
-            text-decoration: none;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
-            transition: opacity 0.2s;
-        }
-        .sidebar-links i { width: 25px; color: #444; }
-        .sidebar-links a:hover { opacity: 0.7; text-decoration: underline; }
-
-        /* Main Content Area */
-        main {
-            flex: 1;
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 50px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            font-size: 1.4rem;
-            color: var(--primary-dark);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 8px;
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .intro { font-size: 1.1rem; color: #444; margin-bottom: 30px; }
+        .wrapper { display: flex; max-width: 1000px; margin: 40px auto; gap: 50px; padding: 0 20px; }
         
-        .section-block { margin-bottom: 45px; }
+        /* Sidebar */
+        aside { flex: 0 0 220px; text-align: left; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 1px solid #eee; }
+        .sidebar-name { font-size: 1.4rem; font-weight: bold; margin-bottom: 5px; color: #000; }
+        .sidebar-desc { font-size: 0.85rem; color: var(--sidebar-text); margin-bottom: 20px; line-height: 1.4; }
+        .social-links { list-style: none; padding: 0; margin: 0; }
+        .social-links li { margin-bottom: 8px; font-size: 0.85rem; }
+        .social-links a { color: var(--sidebar-text); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .social-links a:hover { color: var(--link); }
 
-        /* Experience & Education styling */
-        .item { margin-bottom: 20px; }
-        .item-header { display: flex; justify-content: space-between; font-weight: 600; color: #111; }
-        .item-sub { color: var(--text-light); font-size: 0.9rem; display: block; }
-        .item-desc { font-size: 0.95rem; margin-top: 5px; color: #444; }
+        /* Main Content */
+        main { flex: 1; }
+        section { display: none; } /* Hidden for tab switching */
+        section.active { display: block; }
+        h1 { font-size: 2rem; margin-top: 0; }
+        h2 { font-size: 1.5rem; color: var(--link); border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 40px; }
+        .pub-item { margin-bottom: 25px; }
+        .pub-title { font-weight: bold; display: block; color: var(--link); text-decoration: none; }
+        .pub-authors { font-size: 0.9rem; color: #555; }
+        .pub-venue { font-size: 0.9rem; font-style: italic; color: #777; }
+        .badge { font-size: 0.75rem; background: #f0f0f0; padding: 2px 8px; border-radius: 4px; margin-left: 5px; font-weight: bold; }
 
-        /* Publication Badge */
-        .badge {
-            display: inline-block;
-            background: #e8f4fd;
-            color: #0366d6;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
-        @media (max-width: 850px) {
-            .container { flex-direction: column; margin-top: 10px; }
-            aside { position: relative; top: 0; flex: none; width: auto; }
+        @media (max-width: 768px) {
+            .wrapper { flex-direction: column; }
+            aside { flex: none; width: 100%; text-align: center; }
+            .profile-img { margin: 0 auto 20px; }
+            .social-links a { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<nav>
+    <div class="nav-container">
+        <a href="#vision" class="active" onclick="showTab('vision')">Vision</a>
+        <a href="#research" onclick="showTab('research')">My Research</a>
+        <a href="#publications" onclick="showTab('publications')">Publications</a>
+        <a href="CV.pdf" target="_blank">CV</a>
+    </div>
+</nav>
+
+<div class="wrapper">
     <aside>
-        <img src="profile.jpg" alt="Zin Win Thu" class="profile-img">
-        <div class="name">Zin Win Thu</div>
-        <div class="affil">
-            PhD Graduate<br>
-            Konkuk University, Seoul
+        <img src="your-photo.jpg" alt="Zin Win Thu" class="profile-img">
+        <div class="sidebar-name">Zin Win Thu</div>
+        <div class="sidebar-desc">
+            Aerospace design optimization with generative machine learning [cite: 5, 162]
         </div>
-        
-        <div class="sidebar-links">
-            <a href="mailto:z.w.thu.29@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-            <a href="https://orcid.org/0000-0003-2948-4873" target="_blank"><i class="fab fa-orcid"></i> ORCID</a>
-            <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-            <a href="https://github.com/Zthu04" target="_blank"><i class="fab fa-github"></i> GitHub (Zthu04)</a>
-            <a href="CV.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Download Curriculum Vitae</a>
-        </div>
+        <ul class="social-links">
+            <li><a href="mailto:z.w.thu.29@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="https://orcid.org/0000-0003-2948-4873" target="_blank"><i class="fab fa-orcid"></i> ORCID</a></li>
+            <li><a href="https://github.com/Zthu04" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="#"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+        </ul>
     </aside>
 
-    <main>
-        <section class="section-block">
-            <h2>About Me</h2>
-            <p class="intro">
-                I am a Ph.D. researcher in <strong>Aerospace and Mobility Engineering</strong> at Konkuk University. My expertise lies at the intersection of <strong>Generative AI</strong> and <strong>Multidisciplinary Design Optimization (MDO)</strong>. 
-            </p>
-            <p>
-                My work focuses on developing AI-driven environments (like <strong>CADE</strong>) to automate and optimize the conceptual design of complex systems, specifically <strong>hybrid-electric aircraft</strong> and Advanced Air Mobility (AAM) vehicles.
-            </p>
+    <main id="content">
+        <section id="vision" class="active">
+            <h1>Research vision</h1>
+            <p>My research aims to improve the practicality of aircraft design through the integration of <strong>Generative AI</strong> and <strong>Multidisciplinary Design Optimization (MDO)</strong>[cite: 5, 10, 162]. I focus on addressing challenges in high-dimensional design spaces and uncertainty quantification for next-generation mobility[cite: 51, 162].</p>
+            <ul>
+                <li>Developing fast surrogate models (MDN, BNN) for on-design and off-design performance[cite: 5, 8].</li>
+                <li>Proposed deep generative approaches for subsonic airfoil and aircraft configuration design[cite: 16, 79].</li>
+                <li>Integrating reliability and possibility-based sizing for hybrid-electric aircraft[cite: 9, 17, 64].</li>
+            </ul>
         </section>
 
-        <section class="section-block">
-            <h2>Education</h2>
-            <div class="item">
-                <div class="item-header">
-                    <span>Ph.D. in Aerospace and Mobility Engineering</span>
-                    <span>2020 — 2025</span>
-                </div>
-                <span class="item-sub">Konkuk University, Seoul, South Korea</span>
-                <p class="item-desc"><em>Thesis: GenAI Optimization Approach for Large Scale Aircraft Design under Uncertainty</em></p>
-            </div>
-            <div class="item">
-                <div class="item-header">
-                    <span>B.E. in Aerospace Engineering</span>
-                    <span>2012 — 2019</span>
-                </div>
-                <span class="item-sub">Myanmar Aerospace Engineering University</span>
-            </div>
+        <section id="research">
+            <h1>My Research</h1>
+            <h2>1. AI-Enhanced Design Environments</h2>
+            <p>As the lead developer of <strong>CADE (Comprehensive Aircraft Design Environment)</strong>, I am building a framework that supports the entire workflow from early-stage generation to multidisciplinary optimization[cite: 6, 23, 24]. It integrates geometry, aerodynamics, and propulsion for AAM aircraft[cite: 25, 106, 121].</p>
+            
+            <h2>2. Design Under Uncertainty</h2>
+            <p>I specialize in <strong>Reliability-Based Design Optimization (RBDO)</strong> and <strong>Possibility-Based Design Optimization (PBDO)</strong> to ensure safety and performance in hybrid-electric systems[cite: 9, 111, 112].</p>
         </section>
 
-        <section class="section-block">
-            <h2>Software & Systems</h2>
-            <div class="item">
-                <div class="item-header">CADE (Comprehensive Aircraft Design Environment)</div>
-                <p class="item-desc">Lead developer of an integrated environment that automates geometry generation, aerodynamic analysis, and performance sizing using Generative VAE and BNN models.</p>
-            </div>
-        </section>
-
-        <section class="section-block">
-            <h2>Selected Publications</h2>
-            <div class="item">
-                <div class="item-header">Integrated Propulsion System Analysis Framework for AAM</div>
-                <span class="item-sub">IEEE Transactions on Transportation Electrification, 2024</span>
+        <section id="publications">
+            <h1>Publications</h1>
+            
+            <div class="pub-item">
+                <a class="pub-title" href="#">Integrated Propulsion System Analysis Framework for Designing Advanced Air Mobility Aircraft</a>
+                <span class="pub-authors">M. I. Alam, Zin Win Thu, N. Nguyen, M. Tyan, J.-W. Lee [cite: 70]</span><br>
+                <span class="pub-venue">IEEE Transactions on Transportation Electrification, 2024 [cite: 71]</span>
                 <span class="badge">Q1 · IF 8.3</span>
             </div>
-            <div class="item">
-                <div class="item-header">Possibility-Based Sizing Method for Hybrid Electric Aircraft</div>
-                <span class="item-sub">IEEE Access, 2025</span>
-                <span class="badge">Q1 · Open Access</span>
-            </div>
-            <div class="item">
-                <div class="item-header">Deep Generative Modeling for Subsonic Airfoil Design</div>
-                <span class="item-sub">Journal of Aircraft (Under Review, 2025)</span>
-            </div>
-        </section>
 
-        <section class="section-block">
-            <h2>Technical Skills</h2>
-            <p>
-                <strong>AI/ML:</strong> VAE, MDN, BNN, Generative Optimization<br>
-                <strong>Engineering:</strong> MDO, Uncertainty Quantification (RDO/PBDO), Electric Propulsion<br>
-                <strong>Tools:</strong> Python, MATLAB, LaTeX, MS Office
-            </p>
+            <div class="pub-item">
+                <a class="pub-title" href="#">Possibility-Based Sizing Method for Hybrid Electric Aircraft</a>
+                <span class="pub-authors">Zin Win Thu, M. Tyan, Y.-H. Choi, M. I. Alam, J.-W. Lee [cite: 63]</span><br>
+                <span class="pub-venue">IEEE Access, 2025 [cite: 64]</span>
+                <span class="badge">Q1 · IF 3.6</span>
+            </div>
+
+            <div class="pub-item">
+                <a class="pub-title" href="#">Deep Generative and Probabilistic Surrogate Modeling for Subsonic Airfoil Design</a>
+                <span class="pub-authors">Zin Win Thu, Aye Aye Maw, J.-W. Lee [cite: 78]</span><br>
+                <span class="pub-venue">Journal of Aircraft (Under Review), 2025 [cite: 79]</span>
+            </div>
+
+            <h2>Selected Conference Proceedings</h2>
+            <div class="pub-item">
+                <span class="pub-authors">Zin Win Thu, et al. [cite: 82]</span><br>
+                <span class="pub-venue">"Enhanced Performance Prediction of Hydrogen Fuel Cell Powered eVTOL UAV," AIAA AVIATION 2022 Forum [cite: 83]</span>
+            </div>
         </section>
     </main>
 </div>
+
+<script>
+    function showTab(tabId) {
+        // Hide all sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach(s => s.classList.remove('active'));
+        
+        // Show selected section
+        document.getElementById(tabId).classList.add('active');
+        
+        // Update nav styling
+        const navLinks = document.querySelectorAll('.nav-container a');
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('onclick').includes(tabId)) {
+                link.classList.add('active');
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
