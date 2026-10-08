@@ -23,29 +23,8 @@
   document.addEventListener('click', event => {
     if (!event.target.closest('.site-header')) closeMenu();
   });
-  const mobile = window.matchMedia('(max-width: 800px)');
+  const mobile = window.matchMedia('(max-width: 850px)');
   mobile.addEventListener('change', closeMenu);
-
-  const markCurrentSection = id => {
-    sectionLinks.forEach(link => {
-      if (link.hash === `#${id}`) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
-  };
-  if ('IntersectionObserver' in window) {
-    const visible = new Set();
-    const sections = [...document.querySelectorAll('main section[id]')];
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) visible.add(entry.target.id);
-        else visible.delete(entry.target.id);
-      });
-      const current = sections.find(section => visible.has(section.id));
-      if (current) markCurrentSection(current.id);
-    }, { rootMargin: '-100px 0px -45% 0px', threshold: 0 });
-    sections.forEach(section => observer.observe(section));
-  }
-  sectionLinks.forEach(link => link.addEventListener('click', () => markCurrentSection(link.hash.slice(1))));
 
   const filters = document.querySelector('.publication-filters');
   const publications = [...document.querySelectorAll('.publication')];
@@ -67,15 +46,42 @@
     });
   });
 
-  // Reveal a linked paper before the browser scrolls to its anchor.
-  const revealLinkedPaper = hash => {
-    const paper = publications.find(publication => `#${publication.id}` === hash);
-    if (paper?.hidden) filters.querySelector('[data-filter="all"]').click();
+  const sections = [...document.querySelectorAll('main > .tab-content')];
+  const sectionForHash = hash => {
+    let id;
+    try { id = decodeURIComponent(hash.slice(1)); } catch { return null; }
+    const target = document.getElementById(id);
+    return target?.closest('main > .tab-content') || null;
   };
-  document.querySelectorAll('a[href^="#paper-"]').forEach(link => {
-    link.addEventListener('click', () => revealLinkedPaper(link.hash));
+  const showSection = section => {
+    sections.forEach(item => { item.hidden = item !== section; });
+    sectionLinks.forEach(link => {
+      if (link.hash === `#${section.id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    closeMenu();
+  };
+  const revealTarget = hash => {
+    const section = sectionForHash(hash);
+    if (!section) return;
+    const paper = publications.find(item => `#${item.id}` === hash);
+    if (paper?.hidden) filters.querySelector('[data-filter="all"]').click();
+    showSection(section);
+  };
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button !== 0) return;
+    revealTarget(link.hash);
   });
-  window.addEventListener('hashchange', () => revealLinkedPaper(location.hash));
+  window.addEventListener('hashchange', () => {
+    if (!location.hash) showSection(sections[0]);
+    else if (sectionForHash(location.hash)) {
+      revealTarget(location.hash);
+      document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
+    }
+  });
+  showSection(sectionForHash(location.hash) || sections[0]);
+  revealTarget(location.hash);
 
   // Enable optional controls only after their handlers are ready.
   menu.hidden = false;
