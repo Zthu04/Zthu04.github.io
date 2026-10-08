@@ -67,6 +67,16 @@
     });
   });
 
+  // Reveal a linked paper before the browser scrolls to its anchor.
+  const revealLinkedPaper = hash => {
+    const paper = publications.find(publication => `#${publication.id}` === hash);
+    if (paper?.hidden) filters.querySelector('[data-filter="all"]').click();
+  };
+  document.querySelectorAll('a[href^="#paper-"]').forEach(link => {
+    link.addEventListener('click', () => revealLinkedPaper(link.hash));
+  });
+  window.addEventListener('hashchange', () => revealLinkedPaper(location.hash));
+
   // Enable optional controls only after their handlers are ready.
   menu.hidden = false;
   filters.hidden = false;
