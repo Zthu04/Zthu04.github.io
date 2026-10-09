@@ -68,7 +68,7 @@ h1 em, .page-section h2 em { color: var(--accent); font-weight: 400; }
 .affiliation-mark { display: grid; place-items: center; width: 35px; height: 39px; border: 1px solid #a6b5a5; color: var(--accent); font-family: var(--serif); font-size: 23px; }
 .hero-portrait { position: relative; padding: 0 0 20px 20px; }
 .hero-portrait::before { content: ""; position: absolute; left: 0; bottom: 0; width: 75%; height: 82%; border: 1px solid #adb9a8; pointer-events: none; }
-.hero-portrait > img { position: relative; width: 100%; height: clamp(400px, 40vw, 525px); object-fit: cover; object-position: 57% center; }
+.hero-portrait > img { position: relative; width: 100%; height: clamp(400px, 40vw, 525px); object-fit: cover; object-position: center 40%; }
 .hero-portrait figcaption { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 18px; color: var(--paper); background: var(--dark); font-size: 9px; letter-spacing: .13em; }
 .hero-portrait figcaption > span:last-child { font-size: 20px; line-height: 1; }
 .portrait-note { position: absolute; top: 28px; left: -10px; width: 175px; padding: 14px 16px 9px; color: var(--dark); background: var(--paper); box-shadow: 0 4px 16px rgb(32 45 41 / 6%); transform: rotate(-4deg); }
@@ -404,7 +404,7 @@ summary::-webkit-details-marker { display: none; }
   .hero-actions .button { min-height: 48px; font-size: 12px; padding-inline: 18px; }
   .hero-affiliation { margin-top: 24px; }
   .hero-portrait { width: 100%; max-width: 420px; justify-self: center; padding-bottom: 12px; }
-  .hero-portrait > img { height: 330px; object-position: 57% 60%; }
+  .hero-portrait > img { height: 330px; object-position: center 40%; }
   .hero-portrait figcaption { font-size: 8px; padding: 12px 16px; }
   .portrait-note { top: 20px; left: 0; width: 153px; }
   .hero-bottom { padding-block: 15px 20px; }
