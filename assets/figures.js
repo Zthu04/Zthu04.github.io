@@ -50,7 +50,9 @@
   };
   const fit = () => {
     if (!image.naturalWidth || image.hidden) return;
-    const ratio = Math.min((viewport.clientWidth - 32) / image.naturalWidth, (viewport.clientHeight - 32) / image.naturalHeight, 1);
+    const availableWidth = Math.max(1, viewport.clientWidth - 32);
+    const availableHeight = Math.max(1, viewport.clientHeight - 32);
+    const ratio = Math.min(availableWidth / image.naturalWidth, availableHeight / image.naturalHeight, 1);
     fitWidth = image.naturalWidth * ratio;
     fitHeight = image.naturalHeight * ratio;
     render();
@@ -78,6 +80,7 @@
     message.textContent = 'Loading figure…';
     viewport.setAttribute('aria-busy', 'true');
     pointers.clear();
+    pinchDistance = 0;
     viewport.classList.remove('is-dragging', 'is-zoomed');
     zoom = 1;
     panX = panY = 0;
@@ -144,6 +147,7 @@
   });
   dialog.addEventListener('close', () => {
     pointers.clear();
+    pinchDistance = 0;
     viewport.classList.remove('is-dragging');
     document.body.classList.remove('figure-viewer-open');
     opener?.focus({ preventScroll: true });
@@ -204,5 +208,9 @@
     if (!pointers.size) viewport.classList.remove('is-dragging');
   };
   ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(type => viewport.addEventListener(type, release));
-  new ResizeObserver(() => { if (dialog.open) fit(); }).observe(viewport);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(() => { if (dialog.open) fit(); }).observe(viewport);
+  } else {
+    window.addEventListener('resize', () => { if (dialog.open) fit(); });
+  }
 })();

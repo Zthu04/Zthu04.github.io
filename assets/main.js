@@ -71,6 +71,7 @@
     if (link.closest('.site-header')) closeMenu();
   });
   window.addEventListener('hashchange', () => {
+    closeMenu();
     revealTarget(location.hash)?.scrollIntoView();
   });
 

@@ -231,7 +231,7 @@ summary::-webkit-details-marker { display: none; }
 .is-interactive-figure:hover img { transform: scale(1.015); }
 .figure-preview-button { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; }
 .figure-viewer-open { overflow: hidden; }
-.figure-viewer { width: min(1200px, calc(100% - 40px)); height: min(940px, calc(100dvh - 40px)); max-width: none; max-height: none; margin: auto; padding: 0; border: 1px solid var(--line); background: var(--paper); color: var(--ink); box-shadow: 0 20px 80px rgb(32 40 34 / 35%); }
+.figure-viewer { width: min(1200px, calc(100% - 40px)); height: min(940px, calc(100vh - 40px)); height: min(940px, calc(100dvh - 40px)); max-width: none; max-height: none; margin: auto; padding: 0; border: 1px solid var(--line); background: var(--paper); color: var(--ink); box-shadow: 0 20px 80px rgb(32 40 34 / 35%); }
 .figure-viewer[open] { display: flex; flex-direction: column; }
 .figure-viewer::backdrop { background: rgb(32 40 34 / 85%); }
 .figure-viewer-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 18px 22px; border-bottom: 1px solid var(--line); }
@@ -246,14 +246,14 @@ summary::-webkit-details-marker { display: none; }
 .figure-viewer-toolbar output { min-width: 48px; text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }
 .figure-viewer-toolbar a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-left: auto; color: var(--accent); font-size: 12px; }
 .figure-viewer-help { margin: 0; padding: 9px 22px 12px; color: var(--muted); font-size: 11px; line-height: 1.6; }
-.figure-viewer-viewport { position: relative; flex: 1; min-height: 120px; margin-inline: 22px; overflow: hidden; border: 1px solid var(--line); background: white; touch-action: none; overscroll-behavior: contain; }
+.figure-viewer-viewport { position: relative; flex: 1; min-height: 64px; margin-inline: 22px; overflow: hidden; border: 1px solid var(--line); background: white; touch-action: none; overscroll-behavior: contain; }
 .figure-viewer-viewport.is-zoomed { cursor: grab; }
 .figure-viewer-viewport.is-dragging { cursor: grabbing; }
 .figure-viewer-image { position: absolute; left: 50%; top: 50%; max-width: none; height: auto; transform: translate(-50%, -50%); user-select: none; pointer-events: none; }
 .figure-viewer-state { position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; color: var(--muted); text-align: center; font-size: 13px; }
 .figure-viewer-caption { flex: none; max-height: 13vh; overflow: auto; padding: 12px 22px 18px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 @media (max-width: 580px) {
-  .figure-viewer { width: calc(100% - 16px); height: calc(100dvh - 16px); }
+  .figure-viewer { width: calc(100% - 16px); height: calc(100vh - 16px); height: calc(100dvh - 16px); }
   .figure-viewer-header { padding: 12px; gap: 12px; }
   .figure-viewer-header h2 { font-size: 17px; }
   .figure-viewer-toolbar { padding: 10px 12px 0; gap: 6px; }
@@ -263,6 +263,24 @@ summary::-webkit-details-marker { display: none; }
   .figure-viewer-help { padding: 6px 12px 10px; }
   .figure-viewer-viewport { margin-inline: 12px; }
   .figure-viewer-caption { padding: 10px 12px 12px; }
+}
+
+/* Keep the figure and its controls usable on phones held in landscape. */
+@media (max-height: 600px) {
+  .figure-viewer { width: calc(100% - 16px); height: calc(100vh - 16px); height: calc(100dvh - 16px); }
+  .figure-viewer-header { flex-shrink: 0; padding: 10px 12px; gap: 12px; }
+  .figure-viewer-header h2 { max-height: 2.5em; font-size: 16px; }
+  .figure-viewer-toolbar { flex-shrink: 0; padding: 8px 12px 0; gap: 6px; }
+  .figure-viewer button { min-width: 36px; min-height: 36px; padding: 6px 9px; }
+  .figure-viewer-toolbar button span { display: none; }
+  .figure-viewer-toolbar output { min-width: 42px; font-size: 11px; }
+  .figure-viewer-toolbar a { width: auto; margin-left: auto; min-height: 36px; font-size: 11px; }
+  .figure-viewer-help { flex-shrink: 0; padding: 6px 12px; font-size: 10px; }
+  .figure-viewer-viewport { margin-inline: 12px; }
+  .figure-viewer-caption { max-height: 56px; padding: 8px 12px; font-size: 11px; }
+}
+@media (max-height: 400px) {
+  .figure-viewer-help { display: none; }
 }
 
 @media (min-width: 1440px) {
