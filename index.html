@@ -76,7 +76,6 @@
           <p>Exploring beyond a model’s learned knowledge requires more than AI predictions. <strong>Physics is essential</strong> to guide the search and assess whether a new concept can work. I want to connect generative models with physical constraints and engineering analysis to explore designs beyond familiar configurations.</p>
           <p><strong>Uncertainty is equally essential.</strong> Learned models, physical assumptions, and analyses at different levels of fidelity each have limits. My research aims to quantify and propagate these uncertainties, alongside variation in operating conditions and technology, so design decisions reflect both predicted performance and confidence in the evidence.</p>
           <p>At Konkuk University, I develop methods for complex aircraft geometry, probabilistic performance prediction, and electric and hybrid-electric aircraft sizing. My doctoral research on airfoils and blended-wing-body aircraft provides a foundation for this direction.</p>
-          <p>My proposed <a href="#research-agenda">GraphAir-X research</a> applies this goal to aircraft topology—components and their structural and functional connections—with physics guiding generation and uncertainty informing feasibility assessment.</p>
           <a class="text-link" href="#background">Explore my experience &amp; education <span aria-hidden="true">↘</span></a>
         </div>
         <blockquote class="research-quote"><p class="eyebrow">A PRINCIPLE THAT GUIDES MY WORK</p><p class="quote-text">“What I cannot <em>create</em>, I do not <em>understand</em>.”</p><footer>Richard Feynman</footer></blockquote>
@@ -150,44 +149,44 @@
         <div class="research-agenda" id="research-agenda" aria-labelledby="agenda-title">
           <div class="agenda-overview">
             <div class="agenda-introduction">
-              <p class="eyebrow">PROPOSED RESEARCH DIRECTION</p>
-              <h3 id="agenda-title">GraphAir-X</h3>
-              <p class="agenda-aim">Bringing AI, physics, and uncertainty together to explore aircraft concepts beyond the model’s training knowledge.</p>
-              <p class="agenda-scope">A proposal to investigate both new configuration topologies and designs that extend beyond the performance regions represented in training.</p>
+              <p class="eyebrow">AI / PHYSICS / UNCERTAINTY</p>
+              <h3 id="agenda-title">Research goals</h3>
+              <p class="agenda-aim">Enabling AI to solve aerospace engineering design problems, with physics and uncertainty as essential foundations.</p>
+              <p class="agenda-scope">My interests span design exploration, physical feasibility, and credible decisions when models operate beyond familiar data.</p>
             </div>
             <div class="agenda-motivation">
               <h4>Research motivation</h4>
-              <p>Aircraft topology is chosen early and strongly shapes later performance. AI can help explore components and their connections, but learning from historical configurations alone does not establish that an unfamiliar concept is physically feasible. Physics must guide generation and assessment through connectivity, force balance, mass and energy consistency, and mission constraints.</p>
+              <p>AI offers new ways to explore engineering designs, but learned patterns alone do not establish that an unfamiliar concept can work. My goal is to connect AI with physical principles, engineering constraints, and analysis to guide the search for feasible aerospace designs.</p>
               <p>Physics-based analysis also has limits: simplifying assumptions, model discrepancy, and analysis fidelity affect confidence in mass, aerodynamic, and propulsion estimates. Together with learned-model uncertainty and variation in technology and operating conditions, these sources must inform feasibility decisions, especially beyond the models’ calibration ranges.</p>
             </div>
           </div>
-          <ol class="research-questions" aria-label="GraphAir-X research questions">
+          <ol class="research-questions" aria-label="Research questions">
             <li class="research-question">
-              <p class="question-index">O1 / REPRESENTATION</p>
-              <h4>How can we represent aircraft topology as a design variable?</h4>
-              <p>Build attributed graphs of aircraft components and their structural and functional connections. Reconstruct configurations from these graphs and validate conceptual estimates of mass, aerodynamics, and performance before using them to guide generation.</p>
+              <p class="question-index">01 / DESIGN EXPLORATION</p>
+              <h4>How can AI help explore complex aerospace design spaces?</h4>
+              <p>Develop representations and computational methods that make complex geometry and aircraft design problems more tractable, while preserving meaningful freedom to explore new possibilities.</p>
             </li>
             <li class="research-question">
-              <p class="question-index">O2 / PHYSICS-GUIDED GENERATION</p>
+              <p class="question-index">02 / PHYSICS-GUIDED DESIGN</p>
               <h4>How can physics guide AI beyond familiar designs?</h4>
-              <p>Investigate a graph variational autoencoder guided by connectivity rules, force balance, mass and energy consistency, and mission constraints. Compare its feasible-and-novel generation rate with a baseline model without physics guidance.</p>
+              <p>Connect learned models with physical principles and engineering analysis so design exploration is guided by feasibility, performance, and mission requirements, including beyond the model’s training data.</p>
             </li>
             <li class="research-question">
-              <p class="question-index">O3 / FEASIBILITY UNDER UNCERTAINTY</p>
+              <p class="question-index">03 / DESIGN UNDER UNCERTAINTY</p>
               <h4>How can uncertainty across models and fidelities inform design decisions?</h4>
-              <p>Quantify and propagate uncertainty from learned models, physical assumptions, conceptual-analysis fidelity, and technology variation into calibrated feasibility probabilities. Investigate feasibility and novelty critics that reflect confidence in the assessment of unconventional designs.</p>
+              <p>Account for uncertainty in AI predictions, physical assumptions, model discrepancy, and analysis fidelity, alongside technology and operating conditions. Use that evidence to support robust and reliable design decisions.</p>
             </li>
             <li class="research-question">
-              <p class="question-index">O4 / EXTRAPOLATION &amp; VALIDATION</p>
-              <h4>What evidence would demonstrate extrapolation?</h4>
-              <p>Hold out entire aircraft families, including their family-specific topology rules, and selected performance regions. Use leave-one-class-out tests, novelty and feasibility metrics, and independent higher-fidelity checks of selected candidates to assess extrapolation and the credibility of uncertainty estimates.</p>
+              <p class="question-index">04 / VALIDATION &amp; CONFIDENCE</p>
+              <h4>When can we trust an AI-assisted design decision?</h4>
+              <p>Evaluate performance and uncertainty against independent engineering evidence and analyses at different fidelities. Identify where a method is credible, where its predictions are uncertain, and when further analysis is needed.</p>
             </li>
           </ol>
-          <p class="agenda-outcome">The aim: AI-enabled aerospace design grounded in physics, with uncertainty made explicit—and a reproducible benchmark to test how far these methods can extend beyond learned designs.</p>
+          <p class="agenda-outcome">The aim: AI-enabled aerospace design grounded in physics, with uncertainty made explicit in every design decision.</p>
         </div>
         <div class="research-foundations">
           <h3>Foundations in my published and doctoral work</h3>
-          <p>My work on learned geometry, probabilistic surrogates, and integrated aircraft sizing provides the starting point for this proposed direction.</p>
+          <p>My work on learned geometry, probabilistic surrogates, and integrated aircraft sizing provides the foundation for these research goals.</p>
         </div>
         <div class="research-grid">
           <article class="research-card"><span class="research-number">01</span><h3>Generative geometry and latent design spaces</h3><p>Learning compact representations of airfoil and wing geometry to reduce the dimensionality of aerodynamic optimization. Generative models enable feasible shape exploration within a learned design space.</p><div class="research-card-image"><img src="assets/airfoil.jpg" alt="Generative airfoil design and probabilistic surrogate framework" width="1197" height="532" loading="lazy" decoding="async"></div><div class="tags"><span>Variational autoencoders</span><span>Airfoil design</span><span>Dimensionality reduction</span></div><a class="research-card-link" href="#paper-airfoil">Explore related research <span aria-hidden="true">→</span></a></article>
