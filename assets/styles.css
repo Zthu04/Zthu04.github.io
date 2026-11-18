@@ -68,6 +68,8 @@ h1 em, .page-section h2 em { color: var(--accent); font-weight: 400; }
 .hero-social-links a:hover { color: var(--accent); text-decoration: underline; }
 .hero-affiliation { display: flex; align-items: center; gap: 12px; margin-top: 36px; font-size: 12px; line-height: 1.55; }
 .hero-affiliation div > span { display: block; font-size: 10px; color: var(--muted); }
+.hero-affiliation > div { min-width: 0; }
+.hero-affiliation > .affiliation-mark { flex-shrink: 0; font-size: 17px; }
 .affiliation-mark { display: grid; place-items: center; width: 35px; height: 39px; border: 1px solid #a6b5a5; color: var(--accent); font-family: var(--serif); font-size: 23px; }
 .hero-portrait { position: relative; padding: 0 0 20px 20px; }
 .hero-portrait::before { content: ""; position: absolute; left: 0; bottom: 0; width: 75%; height: 82%; border: 1px solid #adb9a8; pointer-events: none; }
@@ -104,6 +106,11 @@ h1 em, .page-section h2 em { color: var(--accent); font-weight: 400; }
 .research-quote em { color: var(--accent); }
 .research-quote footer { color: var(--muted); font-size: 10px; }
 .research-grid { display: grid; gap: 0; }
+.current-research { margin-bottom: 36px; padding: clamp(22px, 4vw, 36px); background: var(--soft); border: 1px solid var(--line); }
+.current-research h3 { max-width: 700px; margin-top: 12px; font-size: clamp(23px, 3vw, 30px); font-weight: 500; letter-spacing: -.025em; line-height: 1.3; }
+.current-research > p:not(.eyebrow) { max-width: 780px; margin-top: 16px; color: var(--muted); font-size: 14px; }
+.current-research .tags { margin-top: 20px; }
+.current-research .text-link { margin-top: 18px; }
 .research-card { display: grid; grid-template-columns: 36px 1fr 1fr; grid-template-rows: auto auto auto 1fr; gap: 0 36px; padding-block: 36px; border-top: 1px solid var(--line); min-width: 0; }
 .research-number { grid-row: 1 / 5; color: var(--highlight); font-family: monospace; font-size: 12px; padding-top: 6px; }
 .research-card h3 { grid-column: 2; font-family: var(--sans); font-size: 23px; font-weight: 500; letter-spacing: -.025em; line-height: 1.3; max-width: 360px; }
