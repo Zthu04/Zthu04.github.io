@@ -22,7 +22,7 @@
   document.addEventListener('click', event => {
     if (!event.target.closest('.site-header')) closeMenu();
   });
-  window.matchMedia('(max-width: 1000px)').addEventListener('change', closeMenu);
+  window.matchMedia('(max-width: 850px)').addEventListener('change', closeMenu);
 
   const filters = document.querySelector('.publication-filters');
   const publications = [...document.querySelectorAll('.publication')];
