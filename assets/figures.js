@@ -2,12 +2,12 @@
   const dialog = document.querySelector('.figure-viewer');
   if (!dialog || typeof dialog.showModal !== 'function') return;
 
-  const figures = [...document.querySelectorAll('.thesis-figure, .paper-figure')].map(figure => {
-    const link = figure.querySelector('.thesis-figure-image, .publication-image');
+  const figures = [...document.querySelectorAll('.paper-figure')].map(figure => {
+    const link = figure.querySelector('.publication-image');
     const image = link.querySelector('img');
     const title = figure.querySelector('h4') || figure.closest('.publication').querySelector('h3');
     const caption = figure.querySelector('figcaption').cloneNode(true);
-    caption.querySelectorAll('h4, a, .thesis-figure-links, .caption-label').forEach(node => node.remove());
+    caption.querySelectorAll('h4, a, .caption-label').forEach(node => node.remove());
     return { element: figure, link, src: link.href, alt: image.alt, title: title.textContent, caption: caption.textContent.trim() };
   });
   if (!figures.length) return;

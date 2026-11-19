@@ -22,7 +22,7 @@
   document.addEventListener('click', event => {
     if (!event.target.closest('.site-header')) closeMenu();
   });
-  window.matchMedia('(max-width: 850px)').addEventListener('change', closeMenu);
+  window.matchMedia('(max-width: 1100px)').addEventListener('change', closeMenu);
 
   const filters = document.querySelector('.publication-filters');
   const publications = [...document.querySelectorAll('.publication')];
@@ -110,18 +110,6 @@
   document.addEventListener('load', scheduleUpdate, true);
   document.querySelectorAll('details').forEach(detail => detail.addEventListener('toggle', scheduleUpdate));
   if ('ResizeObserver' in window) new ResizeObserver(scheduleUpdate).observe(document.querySelector('main'));
-
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if ('IntersectionObserver' in window && !reducedMotion.matches) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-revealed');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('.about-heading, .section-heading, .research-card, .thesis-overview, .contact-content').forEach(element => observer.observe(element));
-  }
 
   menu.hidden = false;
   document.documentElement.classList.add('js');
